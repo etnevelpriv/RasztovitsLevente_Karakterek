@@ -76,6 +76,15 @@ namespace _02._20
             }
             return karakterek;
         }
+        public static void legjobbHarom(List<Karakter> karakterek)
+        {
+            var topHarom = karakterek.OrderByDescending(k => k.Szint + k.Ero).Take(3).ToList();
+            Console.WriteLine("\nA legjobb három karakter:");
+            foreach (var karakter in topHarom)
+            {
+                Console.WriteLine($"Név: {karakter.Nev}, Szint: {karakter.Szint}, Erő: {karakter.Ero}");
+            }
+        }
 
         public class KarakterStats
         {
@@ -92,6 +101,25 @@ namespace _02._20
             }
         }
 
+        public class KarakterRangsorolas
+        {
+            private List<Karakter> karakterek;
+
+            public KarakterRangsorolas(List<Karakter> karakterek)
+            {
+                this.karakterek = karakterek;
+            }
+
+            public void Rangsorol()
+            {
+                var rangsorolt = karakterek.OrderByDescending(k => k.Eletero + k.Ero).ToList();
+                Console.WriteLine("\nRangsorolt karakterek életerő és erő alapján:");
+                foreach (var karakter in rangsorolt)
+                {
+                    Console.WriteLine($"Név: {karakter.Nev}, Szint: {karakter.Szint}, Életerő: {karakter.Eletero}, Erő: {karakter.Ero}");
+                }
+            }
+        }
     }
 
 }
