@@ -1,4 +1,6 @@
-﻿namespace _02._20
+﻿using static _02._20.Karakter;
+
+namespace _02._20
 {
     internal class Program
     {
@@ -27,8 +29,16 @@
             
             Karakter.rendezesEro(karakterek);
             
-            Console.Write($"{karakterek[20].Nev} ereje nagyobb mint 50? A válasz: ");
+            Console.Write($"\n{karakterek[20].Nev} ereje nagyobb mint 50? A válasz: ");
             Console.WriteLine(karakterek[20].eroNagyobbMint(50) ? "Igen" : "Nem");
+
+            KarakterStats karakterStats = new KarakterStats(karakterek);
+            var szurtKarakterek = karakterStats.szint();
+            Console.WriteLine("\nKarakterek, akik 8, vagy annál magasabb szinttel rendelkeznek:");
+            foreach (var karakter in szurtKarakterek)
+            {
+                Console.WriteLine($"{karakter.Nev}, szintje: {karakter.Szint}");
+            }
         }
     }
 }

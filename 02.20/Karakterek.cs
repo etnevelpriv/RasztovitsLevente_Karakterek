@@ -51,5 +51,22 @@ namespace _02._20
         {
             return $"Név: {Nev}, Szint: {Szint}, Életerő: {Eletero}, Erő: {Ero}";
         }
+
+        public class KarakterStats
+        {
+            private List<Karakter> karakterek;
+
+            public KarakterStats(List<Karakter> karakterek)
+            {
+                this.karakterek = karakterek;
+            }
+
+            public List<Karakter> szint()
+            {
+                return karakterek.Where(k => k.Szint > 8).ToList();
+            }
+        }
+
     }
+
 }
