@@ -39,6 +39,16 @@ namespace _02._20
             {
                 Console.WriteLine($"{karakter.Nev}, szintje: {karakter.Szint}");
             }
+
+            Karakter.MentesCSV(karakterek);
+            Console.WriteLine($"\nKarakterek elmentve egy csv fájlba.");
+
+            List<Karakter> beolvasottKarakterek = Karakter.BeolvasCSV();
+            Console.WriteLine("\nBeolvasott karakterek a CSV fájlból:");
+            foreach (var karakter in beolvasottKarakterek)
+            {
+                Console.WriteLine(karakter);
+            }
         }
     }
 }

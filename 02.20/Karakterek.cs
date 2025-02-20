@@ -52,6 +52,31 @@ namespace _02._20
             return $"Név: {Nev}, Szint: {Szint}, Életerő: {Eletero}, Erő: {Ero}";
         }
 
+        public static void MentesCSV(List<Karakter> karakterek)
+        {
+            using (StreamWriter sw = new StreamWriter("karakterek.csv"))
+            {
+                sw.WriteLine("Nev,Szint,Eletero,Ero");
+                foreach (var karakter in karakterek)
+                {
+                    sw.WriteLine($"{karakter.Nev},{karakter.Szint},{karakter.Eletero},{karakter.Ero}");
+                }
+            }
+        }
+
+        public static List<Karakter> BeolvasCSV()
+        {
+            List<Karakter> karakterek = new List<Karakter>();
+            string[] sorok = File.ReadAllLines("karakterek.csv");
+            foreach (string sor in sorok.Skip(1))
+            {
+                string[] adatok = sor.Split(',');
+                Karakter karakter = new Karakter(adatok[0], int.Parse(adatok[1]), int.Parse(adatok[2]), int.Parse(adatok[3]));
+                karakterek.Add(karakter);
+            }
+            return karakterek;
+        }
+
         public class KarakterStats
         {
             private List<Karakter> karakterek;
