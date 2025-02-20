@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _02._20
 {
@@ -21,9 +20,9 @@ namespace _02._20
             Ero = ero;
         }
 
-        public void ToString()
+        public override string ToString()
         {
-            Console.WriteLine($"Név: {Nev}, Szint: {Szint}, Életerő: {Eletero}, Erő: {Ero}");
+            return $"Név: {Nev}, Szint: {Szint}, Életerő: {Eletero}, Erő: {Ero}";
         }
     }
 }
