@@ -54,6 +54,8 @@ namespace _02._20
 
             KarakterRangsorolas rangsorolas = new KarakterRangsorolas(karakterek);
             rangsorolas.Rangsorol();
+
+            Karakter.csataSzimulacio(karakterek);
         }
     }
 }

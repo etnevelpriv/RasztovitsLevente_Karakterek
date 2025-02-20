@@ -76,6 +76,7 @@ namespace _02._20
             }
             return karakterek;
         }
+
         public static void legjobbHarom(List<Karakter> karakterek)
         {
             var topHarom = karakterek.OrderByDescending(k => k.Szint + k.Ero).Take(3).ToList();
@@ -83,6 +84,35 @@ namespace _02._20
             foreach (var karakter in topHarom)
             {
                 Console.WriteLine($"Név: {karakter.Nev}, Szint: {karakter.Szint}, Erő: {karakter.Ero}");
+            }
+        }
+
+        public static void csataSzimulacio(List<Karakter> karakterek)
+        {
+            Console.WriteLine("\nCsaták eredményei:");
+            for (int i = 0; i < karakterek.Count; i++)
+            {
+                for (int j = i + 1; j < karakterek.Count; j++)
+                {
+                    var karakter1 = karakterek[i];
+                    var karakter2 = karakterek[j];
+                    Console.WriteLine($"\n{karakter1.Nev} vs {karakter2.Nev}");
+                    var karakter1Pontok = karakter1.Szint + karakter1.Ero;
+                    var karakter2Pontok = karakter2.Szint + karakter2.Ero;
+
+                    if (karakter1Pontok > karakter2Pontok)
+                    {
+                        Console.WriteLine($"{karakter1.Nev} nyert {karakter2.Nev} ellen.");
+                    }
+                    else if (karakter1Pontok < karakter2Pontok)
+                    {
+                        Console.WriteLine($"{karakter2.Nev} nyert {karakter1.Nev} ellen.");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{karakter1.Nev} és {karakter2.Nev} döntetlent játszottak.");
+                    }
+                }
             }
         }
 
