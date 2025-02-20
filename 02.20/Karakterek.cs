@@ -20,6 +20,33 @@ namespace _02._20
             Ero = ero;
         }
 
+        public static void atlagSzint(List<Karakter> karakterek)
+        {
+            int osszeg = 0;
+            foreach (var karakter in karakterek)
+            {
+                osszeg += karakter.Szint;
+            }
+
+            double atlagSzint = osszeg / karakterek.Count;
+            Console.WriteLine($"\nÁtlag szint: {atlagSzint}");
+        }
+
+        public static void rendezesEro(List<Karakter> karakterek)
+        {
+            Console.WriteLine("\nRendezett karakterek erő szerint:");
+            var rendezett = karakterek.OrderByDescending(k => k.Ero).ToList();
+            foreach (var karakter in rendezett)
+            {
+                Console.WriteLine(karakter);
+            }
+        }
+
+        public bool eroNagyobbMint(int ertek)
+        {
+            return Ero > ertek;
+        }
+
         public override string ToString()
         {
             return $"Név: {Nev}, Szint: {Szint}, Életerő: {Eletero}, Erő: {Ero}";

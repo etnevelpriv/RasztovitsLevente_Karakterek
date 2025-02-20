@@ -21,8 +21,14 @@
                     legnagyobbEletero = karakterek[i];
                 }
             }
-
             Console.WriteLine($"A legnagyobb életerővel rendelkező karakter neve: {legnagyobbEletero.Nev}, szintje: {legnagyobbEletero.Szint}, életereje: {legnagyobbEletero.Eletero}");
+            
+            Karakter.atlagSzint(karakterek);
+            
+            Karakter.rendezesEro(karakterek);
+            
+            Console.Write($"{karakterek[20].Nev} ereje nagyobb mint 50? A válasz: ");
+            Console.WriteLine(karakterek[20].eroNagyobbMint(50) ? "Igen" : "Nem");
         }
     }
 }
